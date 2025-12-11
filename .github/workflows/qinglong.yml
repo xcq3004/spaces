@@ -1,15 +1,15 @@
-name: Build and Push QingLong Docker Image
+name: Build and Push aaeb Docker Image
 
 on:
   push:
     branches: [ main ]
     paths:
-      - 'QingLong/services.json'
-      - 'QingLong/notify.py'
-      - 'QingLong/front.conf'
-      - 'QingLong/docker-entrypoint.sh'
-      - 'QingLong/README.md'
-      - 'QingLong/Dockerfile'
+      - 'aaeb/services.json'
+      - 'aaeb/notify.py'
+      - 'aaeb/front.conf'
+      - 'aaeb/docker-entrypoint.sh'
+      - 'aaeb/README.md'
+      - 'aaeb/Dockerfile'
   workflow_dispatch:
 
 jobs:
@@ -41,13 +41,13 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: ./QingLong
+          context: ./aaeb
           push: true
           tags: |
-            ghcr.io/efefer/qinglong:latest
+            ghcr.io/aaeb/qinglong:latest
           labels: |
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
-            org.opencontainers.image.description=QingLong Docker Image
+            org.opencontainers.image.description=aaeb Docker Image
             org.opencontainers.image.licenses=MIT
           cache-from: type=gha
           cache-to: type=gha,mode=max
