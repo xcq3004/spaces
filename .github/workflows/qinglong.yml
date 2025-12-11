@@ -1,15 +1,15 @@
-name: Build and Push aege Docker Image
+name: Build and Push QingLong Docker Image
 
 on:
   push:
     branches: [ main ]
     paths:
-      - 'aege/services.json'
-      - 'aege/notify.py'
-      - 'aege/front.conf'
-      - 'aege/docker-entrypoint.sh'
-      - 'aege/README.md'
-      - 'aege/Dockerfile'
+      - 'QingLong/services.json'
+      - 'QingLong/notify.py'
+      - 'QingLong/front.conf'
+      - 'QingLong/docker-entrypoint.sh'
+      - 'QingLong/README.md'
+      - 'QingLong/Dockerfile'
   workflow_dispatch:
 
 jobs:
@@ -41,10 +41,10 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: ./aege
+          context: ./QingLong
           push: true
           tags: |
-            ghcr.io/sfegr/qinglong:latest
+            ghcr.io/efefer/qinglong:latest
           labels: |
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
             org.opencontainers.image.description=QingLong Docker Image
