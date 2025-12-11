@@ -44,7 +44,7 @@ jobs:
           context: ./aaeb
           push: true
           tags: |
-            ghcr.io/aaeb/qinglong:latest
+            ghcr.io/${{ steps.lower-repo.outputs.repository }}/aaebaa:latest
           labels: |
             org.opencontainers.image.source=https://github.com/${{ github.repository }}
             org.opencontainers.image.description=aaeb Docker Image
